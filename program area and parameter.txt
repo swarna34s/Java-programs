@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+// Custom Exception Class
+class InvalidDimensionException extends Exception {
+    public InvalidDimensionException(String message) {
+        super(message);
+    }
+}
+
+public class RectangleCalculation {
+
+    // Method to calculate area
+    public static double calculateArea(double length, double width) throws InvalidDimensionException {
+        if (length <= 0 || width <= 0) {
+            throw new InvalidDimensionException("Length and width must be positive values.");
+        }
+        return length * width;
+    }
+
+    // Method to calculate perimeter
+    public static double calculatePerimeter(double length, double width) throws InvalidDimensionException {
+        if (length <= 0 || width <= 0) {
+            throw new InvalidDimensionException("Length and width must be positive values.");
+        }
+        return 2 * (length + width);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter length of rectangle: ");
+            double length = sc.nextDouble();
+
+            System.out.print("Enter width of rectangle: ");
+            double width = sc.nextDouble();
+
+            double area = calculateArea(length, width);
+            double perimeter = calculatePerimeter(length, width);
+
+            System.out.println("Area of Rectangle: " + area);
+            System.out.println("Perimeter of Rectangle: " + perimeter);
+
+        } catch (InvalidDimensionException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+}
