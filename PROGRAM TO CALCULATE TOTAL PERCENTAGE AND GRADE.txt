@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Marks Grade {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input marks
+        System.out.println("Enter marks of 5 subjects (out of 100): ");
+        int s1 = sc.nextInt();
+        int s2 = sc.nextInt();
+        int s3 = sc.nextInt();
+        int s4 = sc.nextInt();
+        int s5 = sc.nextInt();
+
+        // Calculate total
+        int total = s1 + s2 + s3 + s4 + s5;
+
+        // Percentage
+        double percentage = total / 5.0;
+
+        // Grade Calculation
+        String grade;
+
+        if (percentage >= 75) {
+            grade = "A+";
+        } else if (percentage >= 65) {
+            grade = "A";
+        } else if (percentage >= 55) {
+            grade = "B";
+        } else if (percentage >= 45) {
+            grade = "C";
+        } else {
+            grade = "Fail";
+        }
+
+        // Output
+        System.out.println("\nTotal Marks = " + total);
+        System.out.println("Percentage = " + percentage + "%");
+        System.out.println("Grade = " + grade);
+
+        sc.close();
+    }
+}
